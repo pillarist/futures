@@ -1,0 +1,20 @@
+import cv2 as cv
+import numpy
+
+pic = cv.imread("/home/chandrakanth/Downloads/icon.jpeg",1)
+
+
+_,pic = cv.imencode(".png",pic)
+print(_)
+pic = numpy.array(pic,dtype=numpy.uint8)
+
+pic = pic.tobytes()
+
+pic = numpy.frombuffer(pic,dtype="uint8")
+pic = cv.imdecode(pic,1)
+print("done")
+
+
+cv.imshow("display",pic)
+
+cv.waitKey(0)
